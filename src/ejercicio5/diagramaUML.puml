@@ -1,0 +1,41 @@
+@startuml
+
+class Barco {
+    - tamanio: int
+    - impactos: boolean[]
+    + Barco(tamanio: int)
+    + estaHundido(): boolean
+    + recibirImpacto(posicion: int): void
+}
+
+class Battleship {
+    - contenedoresAislados: boolean[]
+    + Battleship()
+    + recibirImpacto(posicion: int, aislado: boolean): void
+    - todosContenedoresAisladosImpactados(): boolean
+}
+
+class Canoe {
+    + Canoe()
+}
+
+class Frigate {
+    + Frigate()
+}
+
+class Tablero {
+    - tamanio: int
+    - cuadricula: Barco[][]
+    + Tablero(tamanio: int)
+    + colocarBarco(barco: Barco, fila: int, columna: int, horizontal: boolean): boolean
+    + atacar(fila: int, columna: int): boolean
+    + todosBarcosHundidos(): boolean
+}
+
+Barco <|-- Battleship
+Barco <|-- Canoe
+Barco <|-- Frigate
+
+Tablero "1" *-- "1..*" Barco
+
+@enduml

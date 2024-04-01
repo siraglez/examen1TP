@@ -305,3 +305,89 @@ Enumeración TipoBarco:
     Valores posibles: BATTLESHIP, FRIGATE, CANOE
 
 ```
+
+
+# Ejercicio 7 examen
+
+El siguiente código Java representa la implementación de un grafo con nodos y aristas, junto con algunas funcionalidades relacionadas con la manipulación y búsqueda en el grafo.
+
+## Clase `Arista`
+
+La clase `Arista` representa una conexión entre dos nodos, con una distancia asociada.
+
+## Clase `Grafo`
+
+La clase `Grafo` maneja los nodos y las relaciones entre ellos. Proporciona métodos para agregar nodos al grafo, realizar un recorrido en profundidad (DFS), encontrar el camino más corto utilizando el algoritmo de Dijkstra y eliminar un nodo con más aristas.
+
+## Clase `Nodo`
+
+La clase abstracta `Nodo` sirve como base para los diferentes tipos de nodos. En este caso, se implementa una subclase `Puerto` que representa un nodo específico con un nombre. Cada nodo tiene una lista de aristas que lo conectan con otros nodos.
+
+## Clase `Main`
+
+En la clase `Main`, se crea un grafo y se agregan varios nodos (puertos) con aristas que los conectan. Se demuestran algunas operaciones como el recorrido en profundidad y la búsqueda del camino más corto entre dos nodos.
+
+Este código establece una estructura básica para representar un grafo y realizar operaciones comunes sobre él, como la búsqueda de caminos y la eliminación de nodos.
+
+# Pseudocódigo
+
+```java
+Clase Arista:
+    Atributos:
+        - distancia: entero
+        - destino: Nodo
+
+    Métodos:
+        - Arista(distancia: entero):
+            Inicializa la arista con la distancia dada y sin destino.
+    
+        - Arista(distancia: entero, destino: Nodo):
+            Inicializa la arista con la distancia y destino dados.
+
+        - obtenerDistancia(): entero:
+            Retorna la distancia de la arista.
+
+        - obtenerDestino(): Nodo:
+            Retorna el nodo destino de la arista.
+
+        - establecerDistancia(distancia: entero):
+            Establece la distancia de la arista.
+
+        - establecerDestino(destino: Nodo):
+            Establece el nodo destino de la arista.
+
+Clase Grafo:
+    Atributos:
+        - nodos: Lista de Nodo
+
+    Métodos:
+        - Grafo():
+            Inicializa el grafo con una lista vacía de nodos.
+
+        - obtenerNodos(): Lista de Nodo:
+            Retorna la lista de nodos del grafo.
+
+        - establecerNodos(nodos: Lista de Nodo):
+            Establece la lista de nodos del grafo.
+
+        - agregarNodo(nodo: Nodo):
+            Agrega un nodo al grafo y establece conexiones con los nodos existentes si es completo.
+
+        - agregarNodoGrafoNoCompleto(nodo: Nodo):
+            Agrega un nodo al grafo sin establecer conexiones adicionales.
+
+        - barridoEnProfundidad(puerto: Puerto): boolean:
+            Realiza un recorrido en profundidad en el grafo desde el puerto dado.
+
+        - caminoMasCorto(inicio: Puerto, destino: Puerto): Lista de Puerto:
+            Encuentra el camino más corto entre los puertos de inicio y destino utilizando el algoritmo de Dijkstra.
+
+        - borrarPuertoConMasAristas(): boolean:
+            Elimina el puerto con más aristas y sus conexiones del grafo.
+
+Clase Main:
+    Método principal:
+        - main():
+            Crea un grafo, agrega varios puertos y aristas, realiza operaciones como el recorrido en profundidad y la búsqueda del camino más corto.
+
+```

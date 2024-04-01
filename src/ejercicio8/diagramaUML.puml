@@ -1,0 +1,51 @@
+@startuml
+
+class Arista {
+    - distancia: int
+    - destino: Nodo
+    + Arista(distancia: int)
+    + Arista(distancia: int, destino: Nodo)
+    + getDistancia(): int
+    + getDestino(): Nodo
+    + setDistancia(distancia: int): void
+    + setDestino(destino: Nodo): void
+}
+
+abstract class Nodo {
+    - aristas: List<Arista>
+    - visitado: boolean
+    - id: static int
+    + Nodo()
+    + getVisitado(): boolean
+    + setVisitado(visitado: boolean): void
+    + getAristas(): List<Arista>
+    + setAristas(aristas: List<Arista>): void
+    + getId(): static int
+    + setId(id: int): void
+    + addArista(arista: Arista): void
+    + toString(): String
+}
+
+class Grafo {
+    - nodos: List<Nodo>
+    + Grafo()
+    + getNodos(): List<Nodo>
+    + setNodos(nodos: List<Nodo>): void
+    + addNodo(nodo: Nodo): void
+    + addNodoGrafoNoCompleto(nodo: Nodo): void
+    + barridoEnProfundidad(puerto: Puerto): boolean
+    + caminoMasCorto(inicio: Puerto, destino: Puerto): List<Puerto>
+    + borrarPuertoConMasAristas(): boolean
+}
+
+class Puerto {
+    - nombre: String
+    + Puerto(nombre: String)
+    + getNombre(): String
+    + setNombre(nombre: String): void
+}
+
+Grafo --|> Nodo
+Puerto --|> Nodo
+
+@enduml

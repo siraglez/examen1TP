@@ -1,0 +1,24 @@
+@startuml
+
+class Jugador {
+    - tablero: Tablero
+    - barcos: Barco[]
+    + Jugador()
+    + realizarAtaque(): int[]
+    + actualizarTablero(ataque: int[], impacto: boolean): void
+}
+
+class Main {
+    + main(): void
+}
+
+Jugador "1" -- "1" Tablero
+Jugador "1" -- "3" Barco
+
+class Main {
+    + main(): void
+}
+
+Main -- Jugador
+
+@enduml

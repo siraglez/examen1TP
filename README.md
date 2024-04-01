@@ -231,3 +231,77 @@ Método jugarTurno(jugador: Jugador, tablero: Tablero):
 
 
 ```
+
+# Ejercicio 7 examen
+
+El siguiente código en Java consiste en la definición de clases y métodos para gestionar tablas hash de barcos, donde cada barco está representado por su tipo, número y nombre.
+
+#### Clase `Barco`:
+
+* Esta clase representa un barco y tiene tres atributos: `tipo`, `numero` y `nombre`.
+* El constructor de la clase toma estos tres atributos como parámetros y los asigna a los atributos correspondientes de la clase.
+
+#### Clase `TablasBarcos`:
+
+* Esta clase gestiona tres tablas hash de barcos: `tablaTipoBarco`, `tablaNumeroBarco` y `tablaNombreBarco`.
+* Cada tabla hash almacena objetos `Barco` utilizando diferentes criterios como clave.
+* El constructor inicializa las tres tablas hash como instancias de `Hashtable`.
+* `hashTipoBarco`, `hashNumeroBarco` y `hashNombreBarco` son métodos que calculan el índice para cada barco en función de su tipo, número y nombre, respectivamente.
+* `agregarBarco` es un método que agrega un barco a las tres tablas hash:
+  * Calcula los índices para cada tabla hash utilizando los métodos de hash mencionados anteriormente.
+  * Luego, agrega el barco a cada tabla hash asegurándose de que no haya colisiones de claves y utilizando el tipo, número y nombre del barco como claves en las respectivas tablas hash.
+
+#### Enumeración `TipoBarco`:
+
+* Es una enumeración que define los tipos de barcos posibles: `BATTLESHIP`, `FRIGATE` y `CANOE`.
+
+Este código proporciona una estructura para almacenar y gestionar información sobre diferentes tipos de barcos utilizando tablas hash en Java. Cada barco puede ser buscado y accedido eficientemente utilizando su tipo, número o nombre como clave en las tablas hash correspondientes.
+
+# Pseudocódigo
+
+```java
+Clase Barco:
+    Atributos:
+        tipo: TipoBarco
+        numero: entero
+        nombre: cadena de caracteres
+
+    Método constructor(tipo, numero, nombre):
+        Asignar tipo, numero y nombre a los atributos correspondientes
+
+Clase TablasBarcos:
+    Atributos:
+        tablaTipoBarco: Hashtable de TipoBarco a Hashtable de entero a Barco
+        tablaNumeroBarco: Hashtable de entero a Hashtable de entero a Barco
+        tablaNombreBarco: Hashtable de cadena de caracteres a Hashtable de cadena de caracteres a Barco
+
+    Método constructor():
+        Inicializar tablaTipoBarco, tablaNumeroBarco y tablaNombreBarco como Hashtable vacías
+
+    Método hashTipoBarco(tipo):
+        Calcular el hash de tipo y devolverlo módulo el tamaño de tablaTipoBarco
+
+    Método hashNumeroBarco(numero):
+        Calcular el hash de numero y devolverlo módulo el tamaño de tablaNumeroBarco
+
+    Método hashNombreBarco(nombre):
+        Calcular el hash de nombre y devolverlo módulo el tamaño de tablaNombreBarco
+
+    Método agregarBarco(barco):
+        Calcular el índice para tipo, numero y nombre utilizando los métodos hash correspondientes
+        Si no existe una entrada para tipo en tablaTipoBarco:
+            Crear una nueva entrada para tipo en tablaTipoBarco
+        Agregar el barco en la entrada correspondiente en tablaTipoBarco utilizando numero como clave
+
+        Si no existe una entrada para numero en tablaNumeroBarco:
+            Crear una nueva entrada para numero en tablaNumeroBarco
+        Agregar el barco en la entrada correspondiente en tablaNumeroBarco utilizando nombre convertido a entero como clave
+
+        Si no existe una entrada para nombre en tablaNombreBarco:
+            Crear una nueva entrada para nombre en tablaNombreBarco
+        Agregar el barco en la entrada correspondiente en tablaNombreBarco utilizando numero convertido a cadena de caracteres como clave
+
+Enumeración TipoBarco:
+    Valores posibles: BATTLESHIP, FRIGATE, CANOE
+
+```

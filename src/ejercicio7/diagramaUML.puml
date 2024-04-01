@@ -1,0 +1,34 @@
+@startuml
+
+enum TipoBarco {
+    BATTLESHIP
+    FRIGATE
+    CANOE
+}
+
+class Barco {
+    - tipo: TipoBarco
+    - numero: int
+    - nombre: String
+
+    + Barco(tipo: TipoBarco, numero: int, nombre: String)
+}
+
+class TablasBarcos {
+    - tablaTipoBarco: Hashtable<TipoBarco, Hashtable<Integer, Barco>>
+    - tablaNumeroBarco: Hashtable<Integer, Hashtable<Integer, Barco>>
+    - tablaNombreBarco: Hashtable<String, Hashtable<String, Barco>>
+
+    + TablasBarcos()
+    + hashTipoBarco(tipo: TipoBarco): int
+    + hashNumeroBarco(numero: int): int
+    + hashNombreBarco(nombre: String): int
+    + agregarBarco(barco: Barco)
+}
+
+Barco "1" *-- "1" TipoBarco
+TablasBarcos "1" *-- "1" Hashtable<TipoBarco, Hashtable<Integer, Barco>>
+TablasBarcos "1" *-- "1" Hashtable<Integer, Hashtable<Integer, Barco>>
+TablasBarcos "1" *-- "1" Hashtable<String, Hashtable<String, Barco>>
+
+@enduml
